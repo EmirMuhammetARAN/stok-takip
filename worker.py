@@ -7,7 +7,7 @@ import smtplib
 import re
 import os
 import random
-import requests
+import cloudscraper
 from email.message import EmailMessage
 
 GONDEREN_MAIL = os.environ.get("GONDEREN_MAIL", "")
@@ -58,10 +58,11 @@ def bershka_stok_kontrol(url, hedef_beden):
         
         api_url = f"https://www.bershka.com/itxrest/3/catalog/store/{store_id}/40259526/category/0/product/{urun_id}/detail?languageId=-5&appId=1"
         
+        scraper = cloudscraper.create_scraper()
         headers = HEADERS.copy()
         headers["Referer"] = url
         
-        r = requests.get(api_url, headers=headers, timeout=20)
+        r = scraper.get(api_url, headers=headers, timeout=30)
         
         if r.status_code != 200:
             print(f"Bershka API hata: {r.status_code}")
@@ -99,10 +100,11 @@ def stradivarius_stok_kontrol(url, hedef_beden):
         
         api_url = f"https://www.stradivarius.com/itxrest/3/catalog/store/{store_id}/40259526/category/0/product/{urun_id}/detail?languageId=-5&appId=1"
         
+        scraper = cloudscraper.create_scraper()
         headers = HEADERS.copy()
         headers["Referer"] = url
         
-        r = requests.get(api_url, headers=headers, timeout=20)
+        r = scraper.get(api_url, headers=headers, timeout=30)
         
         if r.status_code != 200:
             print(f"Stradivarius API hata: {r.status_code}")
