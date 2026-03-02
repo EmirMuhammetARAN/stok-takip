@@ -14,7 +14,7 @@ function App() {
     setMessage('');
     setError('');
     try {
-      const res = await fetch('http://151.145.90.252:8000/takip-baslat', {
+      const res = await fetch('https://streams-spirits-bell-medium.trycloudflare.com/takip-baslat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mail, url, beden })
