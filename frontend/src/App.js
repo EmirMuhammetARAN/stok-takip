@@ -14,7 +14,7 @@ function App() {
     setMessage('');
     setError('');
     try {
-      const res = await fetch('https://streams-spirits-bell-medium.trycloudflare.com/takip-baslat', {
+      const res = await fetch('https://freebsd-boundaries-faq-solo.trycloudflare.com/takip-baslat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mail, url, beden })
